@@ -9,29 +9,28 @@
 <body>
     <div class="container">
             <br>
-            <h3>For the chemists who don't wanna spoil calculator buttons.<br>(by spilling solvents kekw)</h3>
-        <hr>
+            <h3>For the chemists who don't wanna spill solvents and spoil calculator buttons.</h3>
         <br>
-        <script type="text/javascript">
+                <script type="text/javascript">
             function Calculate()
-            {
-                calc.mg_A.value = (calc.eq_A.value / (calc.purity_A.value/100) * calc.molwt_A.value * calc.mmol_A.value);
+            {   
+                calc.mg_A.value = (calc.molwt_A.value * calc.mmol_A.value / (calc.purity_A.value / 100));
                 calc.mL_A.value = (calc.mg_A.value / calc.density_A.value);
 
                 calc.mmol_B.value = (calc.eq_B.value / calc.eq_A.value * calc.mmol_A.value);
-                calc.mg_B.value = (calc.eq_B.value / calc.eq_A.value / (calc.purity_B.value/100) * calc.molwt_B.value * calc.mmol_B.value);
+                calc.mg_B.value = (calc.molwt_B.value * calc.mmol_B.value / (calc.purity_B.value / 100));
                 calc.mL_B.value = (calc.mg_B.value / calc.density_B.value);
 
                 calc.mmol_C.value = (calc.eq_C.value / calc.eq_A.value * calc.mmol_A.value);
-                calc.mg_C.value = (calc.eq_C.value / calc.eq_A.value / (calc.purity_C.value/100) * calc.molwt_C.value * calc.mmol_C.value);
+                calc.mg_C.value = (calc.molwt_C.value * calc.mmol_C.value / (calc.purity_C.value / 100));
                 calc.mL_C.value = (calc.mg_C.value / calc.density_C.value);
 
                 calc.mmol_D.value = (calc.eq_D.value / calc.eq_A.value * calc.mmol_A.value);
-                calc.mg_D.value = (calc.eq_D.value / calc.eq_A.value / (calc.purity_D.value/100) * calc.molwt_D.value * calc.mmol_D.value);
+                calc.mg_D.value = (calc.molwt_D.value * calc.mmol_D.value / (calc.purity_D.value / 100));
                 calc.mL_D.value = (calc.mg_D.value / calc.density_D.value);
 
                 calc.mmol_E.value = (calc.eq_E.value / calc.eq_A.value * calc.mmol_A.value);
-                calc.mg_E.value = (calc.eq_E.value / calc.eq_A.value / (calc.purity_E.value/100) * calc.molwt_E.value * calc.mmol_E.value);
+                calc.mg_E.value = (calc.molwt_E.value * calc.mmol_E.value / (calc.purity_E.value / 100));
                 calc.mL_E.value = (calc.mg_E.value / calc.density_E.value);
 
                 calc.sol_mL_A.value = (calc.mmol_A.value / calc.conc_A.value);
@@ -42,99 +41,89 @@
 
             }
         </script>
-            <p>単位が太字になってるところは入力されているようにしてください<br>
-                太字になっていないところはcalcボタンを押したら勝手に反映されます</p>
-            <p>今のところ化合物5つ, 溶媒2つまで<br>
-                eq.は当量, %は試薬の純度, g/molは分子量, mg/mLは密度(必要に応じて)</p>
-        <form name="calc" class="form-inline">
-            <input type="button" name="buttoncalc" onClick="Calculate()" value="calc">
-            <br><br>
-            <p><b>REAGENTS</b></p>
-            reagent_A<br>
-            <label>Offer:</label>
-            <input type="text" class="form-control" style="width:50px;" name="eq_A" value=1>
-            <input type="text" name="purity_A" value=100><b>%</b><br>
-            <input type="text" name="molwt_A" value=0><b>g/mol</b>
-            <input type="text" name="mmol_A" value=0><b>mmol</b><br>
-            <input type="text" name="mg_A" value=0>mg
-            <input type="text" name="mL_A" value=0>mL
-            <input type="text" name="density_A" value=1 min="0"><b>mg/mL</b><br><hr>
-            
-        <br>
-            reagent_B<br>
-            <input type="text" name="eq_B" value=1><b>eq.</b>
-            <input type="text" name="purity_B" value=100><b>%</b><br>
-            <input type="text" name="molwt_B" value=0><b>g/mol</b>
-            <input type="text" name="mmol_B" value=0>mmol<br>
-            <input type="text" name="mg_B" value=0>mg
-            <input type="text" name="mL_B" value=0>mL
-            <input type="text" name="density_B" value=1><b>mg/mL</b><br><hr>
-            
-        <br>
-            reagent_C<br>
-            <input type="text" name="eq_C" value=1><b>eq.</b>
-            <input type="text" name="purity_C" value=100><b>%</b><br>
-            <input type="text" name="molwt_C" value=0><b>g/mol</b>
-            <input type="text" name="mmol_C" value=0>mmol<br>
-            <input type="text" name="mg_C" value=0>mg
-            <input type="text" name="mL_C" value=0>mL
-            <input type="text" name="density_C" value=1><b>mg/mL</b><br><hr>
 
-        <br>
-            reagent_D<br>
-            <input type="text" name="eq_D" value=1><b>eq.</b>
-            <input type="text" name="purity_D" value=100><b>%</b><br>
-            <input type="text" name="molwt_D" value=0><b>g/mol</b>
-            <input type="text" name="mmol_D" value=0>mmol<br>
-            <input type="text" name="mg_D" value=0>mg
-            <input type="text" name="mL_D" value=0>mL
-            <input type="text" name="density_D" value=1><b>mg/mL</b><br><hr>
-
-        <br>
-            reagent_E<br>
-            <input type="text" name="eq_E" value=1><b>eq.</b>
-            <input type="text" name="purity_E" value=100><b>%</b><br>
-            <input type="text" name="molwt_E" value=0><b>g/mol</b>
-            <input type="text" name="mmol_E" value=0>mmol<br>
-            <input type="text" name="mg_E" value=0>mg
-            <input type="text" name="mL_E" value=0>mL
-            <input type="text" name="density_E" value=1><b>mg/mL</b><br><hr>
-        <hr><hr>
-        <br>
-            <p><b>SOLVENTS</b></p>
-            solvent_A<br>
-            <input type="text" name="conc_A" value=1><b>mol/L solution of reagent_A</b><br>
-            <input type="text" name="sol_mL_A" value=0>mL needed<br>
-            <input type="text" name="sol_mg_A" value=0>mg needed
-            (<input type="text" name="sol_density_A" value=1><b>mg/mL</b>)<br><hr>
-
-        <br>
-            solvent_B<br>
-            <input type="text" name="conc_B" value=1><b>mol/L solution of reagent_B</b><br>
-            <input type="text" name="sol_mL_B" value=0>mL needed<br>
-            <input type="text" name="sol_mg_B" value=0>mg needed
-            (<input type="text" name="sol_density_B" value=1><b>mg/mL</b>)<br><hr>
+        <form name="calc" onChange="Calculate()">
+            <h4>REAGENTS</h4>
+            <hr>
+            <p>reagent_A</p>
+            <div class="col-xs-2 col-md-offset-5">
+                    <p><input type="text" style="width:30px;" name="eq_A" value=1><b>eq.</b>
+                    <input type="text" style="width:50px;" name="purity_A" value=100><b>%</b>
+                    <input type="text" style="width:70px;" name="molwt_A" value=0><b>g/mol</b>
+                    <input type="text" style="width:70px;" name="mmol_A" value=0><b>mmol</b></p>
+                    <p><input type="text" style="width:70px;" name="mg_A" value=0>mg
+                    <input type="text" style="width:70px;" name="mL_A" value=0>mL
+                    <input type="text" style="width:70px;" name="density_A" value=1 min="0"><b>mg/mL</b></p>
+            <hr>
+            <p>reagent_B</p>
+                    <p><input type="text" style="width:30px;" name="eq_B" value=1><b>eq.</b>
+                    <input type="text" style="width:50px;" name="purity_B" value=100><b>%</b>
+                    <input type="text" style="width:70px;" name="molwt_B" value=0><b>g/mol</b>
+                    <input type="text" style="width:70px;" name="mmol_B" value=0>mmol</p>
+                    <p><input type="text" style="width:70px;" name="mg_B" value=0>mg
+                    <input type="text" style="width:70px;" name="mL_B" value=0>mL
+                    <input type="text" style="width:70px;" name="density_B" value=1 min="0"><b>mg/mL</b></p>
+            <hr>
+            <p>reagent_C</p>
+                    <p><input type="text" style="width:30px;" name="eq_C" value=1><b>eq.</b>
+                    <input type="text" style="width:50px;" name="purity_C" value=100><b>%</b>
+                    <input type="text" style="width:70px;" name="molwt_C" value=0><b>g/mol</b>
+                    <input type="text" style="width:70px;" name="mmol_C" value=0>mmol</p>
+                    <p><input type="text" style="width:70px;" name="mg_C" value=0>mg
+                    <input type="text" style="width:70px;" name="mL_C" value=0>mL
+                    <input type="text" style="width:70px;" name="density_C" value=1 min="0"><b>mg/mL</b></p>
+            <hr>
+            <p>reagent_D</p>
+                    <p><input type="text" style="width:30px;" name="eq_D" value=1><b>eq.</b>
+                    <input type="text" style="width:50px;" name="purity_D" value=100><b>%</b>
+                    <input type="text" style="width:70px;" name="molwt_D" value=0><b>g/mol</b>
+                    <input type="text" style="width:70px;" name="mmol_D" value=0>mmol</p>
+                    <p><input type="text" style="width:70px;" name="mg_D" value=0>mg
+                    <input type="text" style="width:70px;" name="mL_D" value=0>mL
+                    <input type="text" style="width:70px;" name="density_D" value=1 min="0"><b>mg/mL</b></p>
+            <hr>
+            <p>reagent_E</p>
+                    <p><input type="text" style="width:30px;" name="eq_E" value=1><b>eq.</b>
+                    <input type="text" style="width:50px;" name="purity_E" value=100><b>%</b>
+                    <input type="text" style="width:70px;" name="molwt_E" value=0><b>g/mol</b>
+                    <input type="text" style="width:70px;" name="mmol_E" value=0>mmol</p>
+                    <p><input type="text" style="width:70px;" name="mg_E" value=0>mg
+                    <input type="text" style="width:70px;" name="mL_E" value=0>mL
+                    <input type="text" style="width:70px;" name="density_E" value=1 min="0"><b>mg/mL</b></p>
+            </div>
+            <br>
+            <br>
+            <h4>SOLVENTS</h4>
+            <hr>
+            <p>solvent_A</p>
+            <div class="col-xs-2 col-md-offset-5">
+                <p><input type="text" style="width:70px;" name="conc_A" value=1><b>mol/L solution of reagent_A</b></p>
+                <p><input type="text" style="width:70px;" name="sol_mL_A" value=0>mL or
+                <input type="text" style="width:70px;" name="sol_mg_A" value=0>mg needed
+                (<input type="text" style="width:70px;" name="sol_density_A" value=1><b>mg/mL</b>)</p>
+                <hr>
+                <p>solvent_B</p>
+                <p><input type="text" style="width:70px;" name="conc_B" value=1><b>mol/L solution of reagent_B</b></p>
+                <p><input type="text" style="width:70px;" name="sol_mL_B" value=0>mL or
+                <input type="text" style="width:70px;" name="sol_mg_B" value=0>mg needed
+                (<input type="text" style="width:70px;" name="sol_density_B" value=1><b>mg/mL</b>)</p>
+            </div>
         </form>
         <br>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <p>reagent_Aを基準にB以降を計算してます。太字部分はすべて入力されているようにしてください<br>
+            太字になっていないところはcalcボタンを押したら勝手に反映されます</p>
+        <p>今のところ化合物5つ, 溶媒2つまで<br>
+            eq.は当量, %は純度, g/molは分子量, mg/mLは密度(体積欲しいとき。勝手に1として計算してる)</p>
         <br>
         <br>
         <br>
         <br>
         <br>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </div>
 </body>
 </html>
