@@ -14,7 +14,12 @@
                 <script type="text/javascript">
             function Calculate()
             {   
-                calc.mg_A.value = (calc.molwt_A.value * calc.mmol_A.value / (calc.purity_A.value / 100));
+                if (document.getElementById("box").checked){
+                    calc.mmol_A.value = (calc.mg_A.value * (calc.purity_A.value/100) / calc.molwt_A.value);
+                }else{
+                    calc.mg_A.value = (calc.molwt_A.value * calc.mmol_A.value / (calc.purity_A.value / 100));     
+                }
+
                 calc.mL_A.value = (calc.mg_A.value / calc.density_A.value);
 
                 calc.mmol_B.value = (calc.eq_B.value / calc.eq_A.value * calc.mmol_A.value);
@@ -45,51 +50,52 @@
         <form name="calc" onChange="Calculate()">
             <h4>REAGENTS</h4>
             <hr>
-            <p>reagent_A</p>
+            <p>reagent_A &nbsp;mg → mmol
+                <input type="checkbox" name="tommol" onclick="Calculate()" id="box"></p>
             <div class="col-xs-2 col-md-offset-5">
-                    <p><input type="text" style="width:30px;" name="eq_A" value=1><b>eq.</b>
+                    <p><input type="text" style="width:50px;" name="eq_A" value=1><b>eq.</b>
                     <input type="text" style="width:50px;" name="purity_A" value=100><b>%</b>
                     <input type="text" style="width:70px;" name="molwt_A" value=0><b>g/mol</b></p>
                     <p><input type="text" style="width:80px;" name="mmol_A" value=0><b>mmol</b>
                     (<input type="text" style="width:70px;" name="density_A" value=1 min="0"><b>mg/mL</b>)</p>
-                    <p><input type="text" style="width:80px;" name="mg_A" value=0>mg or
+                    <p><input type="text" style="width:90px;" name="mg_A" value=0>mg or
                     <input type="text" style="width:80px;" name="mL_A" value=0>mL</p>
                     
                 <hr>
                 <p>reagent_B</p>
-                    <p><input type="text" style="width:30px;" name="eq_B" value=1><b>eq.</b>
+                    <p><input type="text" style="width:50px;" name="eq_B" value=1><b>eq.</b>
                     <input type="text" style="width:50px;" name="purity_B" value=100><b>%</b>
                     <input type="text" style="width:70px;" name="molwt_B" value=0><b>g/mol</b></p>
                     <p><input type="text" style="width:80px;" name="mmol_B" value=0>mmol
                     (<input type="text" style="width:70px;" name="density_B" value=1 min="0"><b>mg/mL</b>)</p>
-                    <p><input type="text" style="width:80px;" name="mg_B" value=0>mg or
+                    <p><input type="text" style="width:90px;" name="mg_B" value=0>mg or
                     <input type="text" style="width:80px;" name="mL_B" value=0>mL</p>
                 <hr>
                 <p>reagent_C</p>
-                    <p><input type="text" style="width:30px;" name="eq_C" value=1><b>eq.</b>
+                    <p><input type="text" style="width:50px;" name="eq_C" value=1><b>eq.</b>
                     <input type="text" style="width:50px;" name="purity_C" value=100><b>%</b>
                     <input type="text" style="width:70px;" name="molwt_C" value=0><b>g/mol</b></p>
                     <p><input type="text" style="width:80px;" name="mmol_C" value=0>mmol
                     (<input type="text" style="width:70px;" name="density_C" value=1 min="0"><b>mg/mL</b>)</p>
-                    <p><input type="text" style="width:80px;" name="mg_C" value=0>mg or
+                    <p><input type="text" style="width:90px;" name="mg_C" value=0>mg or
                     <input type="text" style="width:80px;" name="mL_C" value=0>mL</p>
                 <hr>
                 <p>reagent_D</p>
-                    <p><input type="text" style="width:30px;" name="eq_D" value=1><b>eq.</b>
+                    <p><input type="text" style="width:50px;" name="eq_D" value=1><b>eq.</b>
                     <input type="text" style="width:50px;" name="purity_D" value=100><b>%</b>
                     <input type="text" style="width:70px;" name="molwt_D" value=0><b>g/mol</b></p>
                     <p><input type="text" style="width:80px;" name="mmol_D" value=0>mmol
                     (<input type="text" style="width:70px;" name="density_D" value=1 min="0"><b>mg/mL</b>)</p>
-                    <p><input type="text" style="width:80px;" name="mg_D" value=0>mg or
+                    <p><input type="text" style="width:90px;" name="mg_D" value=0>mg or
                     <input type="text" style="width:80px;" name="mL_D" value=0>mL</p>
                 <hr>
                 <p>reagent_E</p>
-                    <p><input type="text" style="width:30px;" name="eq_E" value=1><b>eq.</b>
+                    <p><input type="text" style="width:50px;" name="eq_E" value=1><b>eq.</b>
                     <input type="text" style="width:50px;" name="purity_E" value=100><b>%</b>
                     <input type="text" style="width:70px;" name="molwt_E" value=0><b>g/mol</b></p>
                     <p><input type="text" style="width:80px;" name="mmol_E" value=0>mmol
                     (<input type="text" style="width:70px;" name="density_E" value=1 min="0"><b>mg/mL</b>)</p>
-                    <p><input type="text" style="width:80px;" name="mg_E" value=0>mg or
+                    <p><input type="text" style="width:90px;" name="mg_E" value=0>mg or
                     <input type="text" style="width:80px;" name="mL_E" value=0>mL</p>
             </div>
             <br>
@@ -115,9 +121,11 @@
         <br>
         <p>reagent_Aを基準にB以降を計算してます。太字部分はすべて入力されているようにしてください<br>
             太字になっていないところはenterとか適当に押したら勝手に反映されます</p>
-        <p>今のところ化合物5つ, 溶媒2つまで<br>
-            eq.は当量, %は純度, g/molは分子量, mg/mLは密度(体積欲しいとき。勝手に1として計算してる)</p>
+        <p>eq.は当量, %は純度, g/molは分子量, mg/mLは密度(体積欲しいとき。勝手に1として計算してる)</p>
         <br>
+        <p>v.20.09.11: reagent_Aに関してはmg→mmolでも計算できるように。</p>
+        <p>最初は割と頻繁に加筆するかもなのでキャッシュクリアかスーパーリロードお願い。<br>
+            バグあったらすぐに教えて</p>
         <br>
         <br>
         <br>
