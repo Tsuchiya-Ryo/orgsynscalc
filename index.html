@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>jikkenganbare-</title>
 </head>
 <body>
@@ -48,19 +49,21 @@
             }
         </script>
 
+
+
         <form name="calc" onChange="Calculate()">
             <h4>REAGENTS</h4>
             <hr>
             <p>reagent_A &nbsp;mg → mmol
                 <input type="checkbox" name="tommol" onclick="Calculate()" id="box"></p>
             <div class="col-xs-2 col-md-offset-5">
-                    <p><input type="text" style="width:50px;" name="eq_A" value=1><b>eq.</b>
-                    <input type="text" style="width:50px;" name="purity_A" value=100><b>%</b>
-                    <input type="text" style="width:70px;" name="molwt_A" value=0><b>g/mol</b></p>
-                    <p><input type="text" style="width:80px;" name="mmol_A" value=0><b>mmol</b>
-                    (<input type="text" style="width:70px;" name="density_A" value=1 min="0"><b>mg/mL</b>)</p>
-                    <p><input type="text" style="width:90px;" name="mg_A" value=0>mg or
-                    <input type="text" style="width:80px;" name="mL_A" value=0>mL</p>
+                    <p><input type="number" step="any" id="num" style="width:50px;" name="eq_A" value=1><b>eq.</b>
+                    <input type="number" step="any" style="width:50px;" name="purity_A" value=100><b>%</b>
+                    <input type="number" step="any" style="width:70px;" name="molwt_A" value=0><b>g/mol</b></p>
+                    <p><input type="number" step="any" style="width:80px;" name="mmol_A" value=0><b>mmol</b>
+                    (<input type="number" step="any" style="width:70px;" name="density_A" value=1 min="0"><b>mg/mL</b>)</p>
+                    <p><input type="number" step="any" style="width:90px;" name="mg_A" value=0>mg or
+                    <input type="number" step="any" style="width:80px;" name="mL_A" value=0>mL</p>
                     
                 <hr>
                 <p>reagent_B</p>
@@ -172,6 +175,7 @@
         <div id="page_top" align="right"><a href="#">PageTop</a></div>
         <br>
         <br>
+        <script type="text/javascript" src="js.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
