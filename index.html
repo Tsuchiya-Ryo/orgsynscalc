@@ -11,6 +11,7 @@
             <br>
             <h3>For the chemists who don't wanna spill solvents and spoil calculator buttons</h3>
         <br>
+        <div align="right"><a href="#soltable">Table</a></div>
                 <script type="text/javascript">
             function Calculate()
             {   
@@ -119,17 +120,17 @@
         <br>
         <br>
         <br>
-        <p>reagent_Aを基準にB以降を計算してます。太字部分はすべて入力されているようにしてください<br>
-            太字になっていないところはenterとか適当に押したら勝手に反映されます</p>
-        <p>eq.は当量, %は純度, g/molは分子量, mg/mLは密度(体積欲しいとき。勝手に1として計算してる)</p>
+        <p>reagent_Aを基準にB以降を計算してます。単位が太字の所をもとに計算します。<br>
+            他の所はenterとか適当に押したら勝手に反映されます。</p>
+        <p>eq.は当量, %は純度, g/molは分子量, mg/mLは密度(体積欲しいとき。勝手に1として計算してる)。</p>
         <br>
-        <p>v.20.09.11: reagent_Aに関してはmg→mmolでも計算できるように。</p>
+        <p>v.20.09.11: reagent_Aに関してはmg→mmolでも計算できるように。溶媒table追加。</p>
         <p>最初は割と頻繁に加筆するかもなのでキャッシュクリアかスーパーリロードお願い。<br>
-            バグあったらすぐに教えて</p>
+            バグ等あったらすぐに教えて</p>
         <br>
         <div id="page_top" align="right"><a href="#">PageTop</a></div>
         <br>
-        <p>TCIより使いそうなやつだけ</p>
+        <p id="soltable">TCIより使いそうなやつだけ</p>
         <table class="table table-sm">
             <thead class="thead-light">
                 <tr><th>溶剤</th><th>bp(°C)</th><th>mp(°C)</th><th>比重</th><th>水混</th></tr>
