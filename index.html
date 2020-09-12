@@ -42,104 +42,99 @@
                 calc.mg_E.value = (calc.molwt_E.value * calc.mmol_E.value / (calc.purity_E.value / 100));
                 calc.mL_E.value = (calc.mg_E.value / calc.density_E.value);
 
-                calc.sol_mL_A.value = (calc.mmol_A.value / calc.conc_A.value);
-                calc.sol_mg_A.value = (calc.sol_mL_A.value * calc.sol_density_A.value);
-
-                calc.sol_mL_B.value = (calc.mmol_B.value / calc.conc_B.value);
-                calc.sol_mg_B.value = (calc.sol_mL_B.value * calc.sol_density_B.value);
-
-                calc.mmol_A.value = val * calc.mmol_A.value;
-                calc.mg_A.value = val * calc.mg_A.value;
+                if (document.getElementById("switchM").checked){
+                    calc.conc_m.value = calc.mmol_A.value / calc.sol_mL_m.value;
+                } else {
+                    calc.sol_mL_m.value = calc.mmol_A.value / calc.conc_m.value;
+                }
+                    calc.sol_mg_w.value = calc.mg_A.value * (100 - calc.conc_w.value) / calc.conc_w.value;        
             }
+            
         </script>
         <form name="calc" onChange="Calculate()">
             <h4>REAGENTS</h4>
             <hr>
-            <p>reagent_A &nbsp;&nbsp;&nbsp; mg → mmol
-                <input type="checkbox" name="tommol" onclick="Calculate()" id="box"></p>
+            <p>reagent_A &nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="tommol" data-toggle="toggle" data-size="sm" data-on="mg → mmol" data-off="mmol → mg" data-onstyle="success" data-offstyle="primary" onclick="Calculate()" id="box"></p>
             <div class="col-xs-2 col-md-offset-5">
-                <p><input type="number" step="any" style="width:60px;" name="eq_A" value=1><b>eq.</b>
-                    <input type="number" step="any" style="width:50px;" name="purity_A" value=100><b>%</b>
-                    <input type="number" step="any" style="width:80px;" name="molwt_A"><b>g/mol</b></p>
-                <p><input type="number" step="any" style="width:90px;" name="mmol_A"><b>mmol</b>
-                    (<input type="number" step="any" style="width:70px;" name="density_A" value=1 min="0"><b>mg/mL</b>)
+                <p><input type="number" step="any" style="width:60px;" name="eq_A" value=1>eq.
+                    <input type="number" step="any" style="width:50px;" name="purity_A" value=100>%
+                    <input type="number" step="any" style="width:80px;" name="molwt_A">g/mol</p>
+                <p><input type="number" step="any" style="width:90px;" name="mmol_A">mmol
+                    (<input type="number" step="any" style="width:70px;" name="density_A" value=1 min="0">mg/mL)
                 </p>
                 <p><input type="number" step="any" style="width:90px;" name="mg_A">mg or
                     <input type="number" step="any" style="width:80px;" name="mL_A">mL</p>
 
                 <hr>
                 <p>reagent_B</p>
-                <p><input type="number" step="any" style="width:60px;" name="eq_B" value=1><b>eq.</b>
-                    <input type="number" step="any" style="width:50px;" name="purity_B" value=100><b>%</b>
-                    <input type="number" step="any" style="width:80px;" name="molwt_B"><b>g/mol</b></p>
+                <p><input type="number" step="any" style="width:60px;" name="eq_B" value=1>eq.
+                    <input type="number" step="any" style="width:50px;" name="purity_B" value=100>%
+                    <input type="number" step="any" style="width:80px;" name="molwt_B">g/mol</p>
                 <p><input type="number" step="any" style="width:90px;" name="mmol_B">mmol
-                    (<input type="number" step="any" style="width:70px;" name="density_B" value=1 min="0"><b>mg/mL</b>)
+                    (<input type="number" step="any" style="width:70px;" name="density_B" value=1 min="0">mg/mL)
                 </p>
                 <p><input type="number" step="any" style="width:90px;" name="mg_B">mg or
                     <input type="number" step="any" style="width:80px;" name="mL_B">mL</p>
                 <hr>
                 <p>reagent_C</p>
-                <p><input type="number" step="any" style="width:60px;" name="eq_C" value=1><b>eq.</b>
-                    <input type="number" step="any" style="width:50px;" name="purity_C" value=100><b>%</b>
-                    <input type="number" step="any" style="width:80px;" name="molwt_C"><b>g/mol</b></p>
+                <p><input type="number" step="any" style="width:60px;" name="eq_C" value=1>eq.
+                    <input type="number" step="any" style="width:50px;" name="purity_C" value=100>%
+                    <input type="number" step="any" style="width:80px;" name="molwt_C">g/mol</p>
                 <p><input type="number" step="any" style="width:90px;" name="mmol_C">mmol
-                    (<input type="number" step="any" style="width:70px;" name="density_C" value=1 min="0"><b>mg/mL</b>)
+                    (<input type="number" step="any" style="width:70px;" name="density_C" value=1 min="0">mg/mL)
                 </p>
                 <p><input type="number" step="any" style="width:90px;" name="mg_C">mg or
                     <input type="number" step="any" style="width:80px;" name="mL_C">mL</p>
                 <hr>
                 <p>reagent_D</p>
-                <p><input type="number" step="any" style="width:60px;" name="eq_D" value=1><b>eq.</b>
-                    <input type="number" step="any" style="width:50px;" name="purity_D" value=100><b>%</b>
-                    <input type="number" step="any" style="width:80px;" name="molwt_D"><b>g/mol</b></p>
+                <p><input type="number" step="any" style="width:60px;" name="eq_D" value=1>eq.
+                    <input type="number" step="any" style="width:50px;" name="purity_D" value=100>%
+                    <input type="number" step="any" style="width:80px;" name="molwt_D">g/mol</p>
                 <p><input type="number" step="any" style="width:90px;" name="mmol_D">mmol
-                    (<input type="number" step="any" style="width:70px;" name="density_D" value=1 min="0"><b>mg/mL</b>)
+                    (<input type="number" step="any" style="width:70px;" name="density_D" value=1 min="0">mg/mL)
                 </p>
                 <p><input type="number" step="any" style="width:90px;" name="mg_D">mg or
                     <input type="number" step="any" style="width:80px;" name="mL_D">mL</p>
                 <hr>
                 <p>reagent_E</p>
-                <p><input type="number" step="any" style="width:60px;" name="eq_E" value=1><b>eq.</b>
-                    <input type="number" step="any" style="width:50px;" name="purity_E" value=100><b>%</b>
-                    <input type="number" step="any" style="width:80px;" name="molwt_E"><b>g/mol</b></p>
+                <p><input type="number" step="any" style="width:60px;" name="eq_E" value=1>eq.
+                    <input type="number" step="any" style="width:50px;" name="purity_E" value=100>%
+                    <input type="number" step="any" style="width:80px;" name="molwt_E">g/mol</p>
                 <p><input type="number" step="any" style="width:90px;" name="mmol_E">mmol
-                    (<input type="number" step="any" style="width:70px;" name="density_E" value=1 min="0"><b>mg/mL</b>)
+                    (<input type="number" step="any" style="width:70px;" name="density_E" value=1 min="0">mg/mL)
                 </p>
                 <p><input type="number" step="any" style="width:90px;" name="mg_E">mg or
                     <input type="number" step="any" style="width:80px;" name="mL_E">mL</p>
             </div>
             <br>
             <br>
-            <h4>SOLVENTS (outputs approx. mL, mg value)</h4>
+            <h4>SOLVENT for REAGENT_A</h4>
             <hr>
-            <p>solvent_A</p>
+            <p>Molar &nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="switchM" data-toggle="toggle" data-size="sm" data-on="mL → mol/L" data-off="mol/L → mL" data-onstyle="success" data-offstyle="primary" onclick="Calculate()" id="switchM"></p>
             <div class="col-xs-2 col-md-offset-5">
-                <p><input type="number" step="any" style="width:70px;" name="conc_A" value=1><b>mol/L solution of
-                        reagent_A</b></p>
-                <p><input type="number" step="any" style="width:70px;" name="sol_mL_A">mL or
-                    <input type="number" step="any" style="width:70px;" name="sol_mg_A">mg
-                    (<input type="number" step="any" style="width:50px;" name="sol_density_A" value=1><b>mg/mL</b>)</p>
+                <p>To prepare <input type="number" step="any" style="width:70px;" name="conc_m">mol/L solution</p>
+                <p>add solvent up to <input type="number" step="any" style="width:70px;" name="sol_mL_m">mL (← solution volume)</p>
                 <hr>
-                <p>solvent_B</p>
-                <p><input type="number" step="any" style="width:70px;" name="conc_B" value=1><b>mol/L solution of
-                        reagent_B</b></p>
-                <p><input type="number" step="any" style="width:70px;" name="sol_mL_B">mL or
-                    <input type="number" step="any" style="width:70px;" name="sol_mg_B">mg
-                    (<input type="number" step="any" style="width:50px;" name="sol_density_B" value=1><b>mg/mL</b>)</p>
+                <p>Mass concentration</p>
+                <p>To prepare <input type="number" step="any" style="width:70px;" name="conc_w">wt% solution</p>
+                <p>add <input type="number" step="any" style="width:70px;" name="sol_mg_w">mg solvent</p>
             </div>
         </form>
         <br>
         <br>
         <br>
-        <p>reagent_Aを基準にB以降を計算してます。単位が太字の所をもとに計算します。
+        <p>reagent_Aを基準にB以降を計算してます。必要なところ入れれば
             他の所はenterとか適当に押したら勝手に反映されます。<br>
         eq.は当量, %は純度, g/molは分子量, mg/mLは密度。</p>
         <p>mg → mmolにチェック: 手元にx mgあって純度xx %のときそれは何mmolか。<br>
         チェックなし: 純度xx %でx mmol欲しいとき何mg必要か。</p>
-        <p>最初は割と頻繁に加筆するかもなのでキャッシュクリアかスーパーリロードお願いします。バグ等あったらすぐに教えてください。</p>
+        <p>随時加筆修正します。不備や要望があったらすぐに教えてください。</p>
 
-        <p>v.20.09.11: reagent_Aに関してはmg→mmolでも計算できるように。溶媒table追加。</p>
-        <p>v.20.09.12: モル濃度適当でした。すみません参考用としてください（実際はもっと薄くなる）</p>
+        <p>v.20.09.11: reagent_Aに関してはmg→mmolでも計算できるように。溶媒table追加。<br>
+        v.20.09.12: <del>モル濃度適当でした。すみません参考用としてください（実際はもっと薄くなる）。</del><br>
+        →表現を変えて一応合っているようにしました。あと質量パーセント濃度追加。</p>
         <br>
         <p id="soltable">TCIから使いそうなやつだけ</p>
         <div id="page_top" align="right"><a href="#">PageTop</a></div>
@@ -394,7 +389,33 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">  
+        <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     </div>
 </body>
 
 </html>
+
+<!-- oninput-failed -->
+<!--
+function solcalc(source, valNum){
+    valNum = parseFloat(valNum);
+    var input_conc_m = document.getElementById("conc_m");
+    var input_sol_mL_m = document.getElementById("sol_mL_m");
+    var input_conc_w = document.getElementById("conc_w");
+    var input_sol_mg_w = document.getElementById("sol_mg_w");
+
+    if (source=="conc_m"){
+        input_sol_mL_m.value = calc.mmol_A.value / valNum;
+    }
+    if (source=="sol_mL_m"){
+        input_conc_m.value = calc.mmol_A.value / valNum;
+    }
+    if (source=="conc_w"){
+        input_sol_mg_w.value = calc.mg_A.value * (100 - valNum) / valNum;
+    }
+    if (source=="sol_mg_w"){
+        input_conc_w.value = 100 * calc.mg_A.value / (calc.mg_A.value + valNum); 
+    }
+}
+-->
