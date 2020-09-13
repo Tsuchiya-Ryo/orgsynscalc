@@ -24,44 +24,53 @@
                     calc.mg_A.value = (calc.molwt_A.value * calc.mmol_A.value / (calc.purity_A.value / 100));
                 }
 
-                calc.mL_A.value = (calc.mg_A.value / calc.density_A.value);
+                calc.mL_A.value = (calc.mg_A.value / (1000 * calc.density_A.value));
 
                 calc.mmol_B.value = (calc.eq_B.value / calc.eq_A.value * calc.mmol_A.value);
                 calc.mg_B.value = (calc.molwt_B.value * calc.mmol_B.value / (calc.purity_B.value / 100));
-                calc.mL_B.value = (calc.mg_B.value / calc.density_B.value);
+                calc.mL_B.value = (calc.mg_B.value / (1000 * calc.density_B.value));
 
                 calc.mmol_C.value = (calc.eq_C.value / calc.eq_A.value * calc.mmol_A.value);
                 calc.mg_C.value = (calc.molwt_C.value * calc.mmol_C.value / (calc.purity_C.value / 100));
-                calc.mL_C.value = (calc.mg_C.value / calc.density_C.value);
+                calc.mL_C.value = (calc.mg_C.value / (1000 * calc.density_C.value));
 
                 calc.mmol_D.value = (calc.eq_D.value / calc.eq_A.value * calc.mmol_A.value);
                 calc.mg_D.value = (calc.molwt_D.value * calc.mmol_D.value / (calc.purity_D.value / 100));
-                calc.mL_D.value = (calc.mg_D.value / calc.density_D.value);
+                calc.mL_D.value = (calc.mg_D.value / (1000 * calc.density_D.value));
 
                 calc.mmol_E.value = (calc.eq_E.value / calc.eq_A.value * calc.mmol_A.value);
                 calc.mg_E.value = (calc.molwt_E.value * calc.mmol_E.value / (calc.purity_E.value / 100));
-                calc.mL_E.value = (calc.mg_E.value / calc.density_E.value);
+                calc.mL_E.value = (calc.mg_E.value / (1000 * calc.density_E.value));
 
                 if (document.getElementById("switchM").checked){
                     calc.conc_m.value = calc.mmol_A.value / calc.sol_mL_m.value;
                 } else {
                     calc.sol_mL_m.value = calc.mmol_A.value / calc.conc_m.value;
                 }
+                if (document.getElementById("switchW").checked){
+                    calc.conc_w.value = 100 * calc.mg_A.value / (calc.mg_A.value*1 + calc.sol_mg_w.value*1);
+                } else {
                     calc.sol_mg_w.value = calc.mg_A.value * (100 - calc.conc_w.value) / calc.conc_w.value;        
+                }
+
+                calc.vol1.value = calc.sol_mL_m.value * calc.ratio1.value*1 / (calc.ratio1.value*1 + calc.ratio2.value*1 + calc.ratio3.value*1);
+                calc.vol2.value = calc.sol_mL_m.value * calc.ratio2.value*1 / (calc.ratio1.value*1 + calc.ratio2.value*1 + calc.ratio3.value*1);
+                calc.vol3.value = calc.sol_mL_m.value * calc.ratio3.value*1 / (calc.ratio1.value*1 + calc.ratio2.value*1 + calc.ratio3.value*1);
             }
-            
         </script>
+
+
         <form name="calc" onChange="Calculate()">
             <h4>REAGENTS</h4>
             <hr>
-            <p>reagent_A &nbsp;&nbsp;&nbsp;
+            <p>reagent_A <span style="margin-right:77px;"></span>
                 <input type="checkbox" name="tommol" data-toggle="toggle" data-size="sm" data-on="mg → mmol" data-off="mmol → mg" data-onstyle="success" data-offstyle="primary" onclick="Calculate()" id="box"></p>
             <div class="col-xs-2 col-md-offset-5">
                 <p><input type="number" step="any" style="width:60px;" name="eq_A" value=1>eq.
                     <input type="number" step="any" style="width:50px;" name="purity_A" value=100>%
                     <input type="number" step="any" style="width:80px;" name="molwt_A">g/mol</p>
                 <p><input type="number" step="any" style="width:90px;" name="mmol_A">mmol
-                    (<input type="number" step="any" style="width:70px;" name="density_A" value=1 min="0">mg/mL)
+                    (<input type="number" step="any" style="width:70px;" name="density_A" value=1 min="0">g/mL)
                 </p>
                 <p><input type="number" step="any" style="width:90px;" name="mg_A">mg or
                     <input type="number" step="any" style="width:80px;" name="mL_A">mL</p>
@@ -72,7 +81,7 @@
                     <input type="number" step="any" style="width:50px;" name="purity_B" value=100>%
                     <input type="number" step="any" style="width:80px;" name="molwt_B">g/mol</p>
                 <p><input type="number" step="any" style="width:90px;" name="mmol_B">mmol
-                    (<input type="number" step="any" style="width:70px;" name="density_B" value=1 min="0">mg/mL)
+                    (<input type="number" step="any" style="width:70px;" name="density_B" value=1 min="0">g/mL)
                 </p>
                 <p><input type="number" step="any" style="width:90px;" name="mg_B">mg or
                     <input type="number" step="any" style="width:80px;" name="mL_B">mL</p>
@@ -82,7 +91,7 @@
                     <input type="number" step="any" style="width:50px;" name="purity_C" value=100>%
                     <input type="number" step="any" style="width:80px;" name="molwt_C">g/mol</p>
                 <p><input type="number" step="any" style="width:90px;" name="mmol_C">mmol
-                    (<input type="number" step="any" style="width:70px;" name="density_C" value=1 min="0">mg/mL)
+                    (<input type="number" step="any" style="width:70px;" name="density_C" value=1 min="0">g/mL)
                 </p>
                 <p><input type="number" step="any" style="width:90px;" name="mg_C">mg or
                     <input type="number" step="any" style="width:80px;" name="mL_C">mL</p>
@@ -92,7 +101,7 @@
                     <input type="number" step="any" style="width:50px;" name="purity_D" value=100>%
                     <input type="number" step="any" style="width:80px;" name="molwt_D">g/mol</p>
                 <p><input type="number" step="any" style="width:90px;" name="mmol_D">mmol
-                    (<input type="number" step="any" style="width:70px;" name="density_D" value=1 min="0">mg/mL)
+                    (<input type="number" step="any" style="width:70px;" name="density_D" value=1 min="0">g/mL)
                 </p>
                 <p><input type="number" step="any" style="width:90px;" name="mg_D">mg or
                     <input type="number" step="any" style="width:80px;" name="mL_D">mL</p>
@@ -102,7 +111,7 @@
                     <input type="number" step="any" style="width:50px;" name="purity_E" value=100>%
                     <input type="number" step="any" style="width:80px;" name="molwt_E">g/mol</p>
                 <p><input type="number" step="any" style="width:90px;" name="mmol_E">mmol
-                    (<input type="number" step="any" style="width:70px;" name="density_E" value=1 min="0">mg/mL)
+                    (<input type="number" step="any" style="width:70px;" name="density_E" value=1 min="0">g/mL)
                 </p>
                 <p><input type="number" step="any" style="width:90px;" name="mg_E">mg or
                     <input type="number" step="any" style="width:80px;" name="mL_E">mL</p>
@@ -111,13 +120,22 @@
             <br>
             <h4>SOLVENT for REAGENT_A</h4>
             <hr>
-            <p>Molar &nbsp;&nbsp;&nbsp;
+            <p>Molar <span style="margin-right:107px;"></span>
                 <input type="checkbox" name="switchM" data-toggle="toggle" data-size="sm" data-on="mL → mol/L" data-off="mol/L → mL" data-onstyle="success" data-offstyle="primary" onclick="Calculate()" id="switchM"></p>
             <div class="col-xs-2 col-md-offset-5">
                 <p>To prepare <input type="number" step="any" style="width:70px;" name="conc_m">mol/L solution</p>
-                <p>add solvent up to <input type="number" step="any" style="width:70px;" name="sol_mL_m">mL (← solution volume)</p>
+                <p>add solvent up to <input type="number" step="any" style="width:70px;" name="sol_mL_m">mL</p>
+                <p>sol_1 : sol_2 : sol_3</p>
+                <p>= <input type="number" step="any" style="width:40px;" name="ratio1" value=1>
+                    : <input type="number"step="any" style="width:40px;" name="ratio2">
+                    : <input type="number"step="any" style="width:40px;" name="ratio3"></p>
+                <p>= <input type="number" step="any" style="width:70px;" name="vol1">
+                    : <input type="number"step="any" style="width:70px;" name="vol2">
+                    : <input type="number"step="any" style="width:70px;" name="vol3"></p>
+                </p>
                 <hr>
-                <p>Mass concentration</p>
+                <p>Mass concentration&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="switchW" data-toggle="toggle" data-size="sm" data-on="mg → wt%" data-off="wt% → mg" data-onstyle="success" data-offstyle="primary" onclick="Calculate()" id="switchW"></p>
                 <p>To prepare <input type="number" step="any" style="width:70px;" name="conc_w">wt% solution</p>
                 <p>add <input type="number" step="any" style="width:70px;" name="sol_mg_w">mg solvent</p>
             </div>
@@ -128,13 +146,14 @@
         <p>reagent_Aを基準にB以降を計算してます。必要なところ入れれば
             他の所はenterとか適当に押したら勝手に反映されます。<br>
         eq.は当量, %は純度, g/molは分子量, mg/mLは密度。</p>
-        <p>mg → mmolにチェック: 手元にx mgあって純度xx %のときそれは何mmolか。<br>
-        チェックなし: 純度xx %でx mmol欲しいとき何mg必要か。</p>
+        <p>mg → mmol: 手元にx mgあって純度xx %のときそれは何mmolか。<br>
+        mmol → mg: 純度xx %でx mmol欲しいとき何mg必要か。</p>
         <p>随時加筆修正します。不備や要望があったらすぐに教えてください。</p>
 
         <p>v.20.09.11: reagent_Aに関してはmg→mmolでも計算できるように。溶媒table追加。<br>
         v.20.09.12: <del>モル濃度適当でした。すみません参考用としてください（実際はもっと薄くなる）。</del><br>
-        →表現を変えて一応合っているようにしました。あと質量パーセント濃度追加。</p>
+        →表現を変えて一応合っているようにしました。あと質量パーセント濃度追加。<br>
+        v.20.09.13: 密度をmg/mL → g/mLに修正(連絡ありがとう！)。その他比率計算とか。</p>
         <br>
         <p id="soltable">TCIから使いそうなやつだけ</p>
         <div id="page_top" align="right"><a href="#">PageTop</a></div>
@@ -142,7 +161,7 @@
         <table class="table table-sm">
             <thead class="thead-light">
                 <tr>
-                    <th>溶剤</th>
+                    <th>溶媒</th>
                     <th>bp(°C)</th>
                     <th>mp(°C)</th>
                     <th>比重</th>
@@ -395,27 +414,3 @@
 </body>
 
 </html>
-
-<!-- oninput-failed -->
-<!--
-function solcalc(source, valNum){
-    valNum = parseFloat(valNum);
-    var input_conc_m = document.getElementById("conc_m");
-    var input_sol_mL_m = document.getElementById("sol_mL_m");
-    var input_conc_w = document.getElementById("conc_w");
-    var input_sol_mg_w = document.getElementById("sol_mg_w");
-
-    if (source=="conc_m"){
-        input_sol_mL_m.value = calc.mmol_A.value / valNum;
-    }
-    if (source=="sol_mL_m"){
-        input_conc_m.value = calc.mmol_A.value / valNum;
-    }
-    if (source=="conc_w"){
-        input_sol_mg_w.value = calc.mg_A.value * (100 - valNum) / valNum;
-    }
-    if (source=="sol_mg_w"){
-        input_conc_w.value = 100 * calc.mg_A.value / (calc.mg_A.value + valNum); 
-    }
-}
--->
