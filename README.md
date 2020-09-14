@@ -11,4 +11,4 @@ switch\
 
 exponential\
   6.02 x 10^23 → type 6.02e23\
-  6.63 x 10^(-34) → type 6.63e-34\
+  6.63 x 10^(-34) → type 6.63e-34
