@@ -6,8 +6,8 @@ Put numbers at g/mol(molwt) and mg or mmol of "reagent_A" first,\
 then reagent_B and the others will be calculated.
 
 switch\
-  mg → mmol: case you have x mg, xx % purity compound and want to know it's moles(mmol).\
-  mmol → mg: case you have xx % purity compound and want to know the amount(mg) to get x mmol.
+  mg → mmol: when you have x mg, xx % purity compound and want to know it's moles(mmol)\
+  mmol → mg: when you have xx % purity compound and want to know the amount(mg) to get x mmol
 
 exponential\
   6.02 x 10^23 → type 6.02e23\
