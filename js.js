@@ -50,3 +50,4 @@ function Calculate() {
     calc.vol2.value = calc.sol_mL_m.value * calc.ratio2.value*1 / (calc.ratio1.value*1 + calc.ratio2.value*1 + calc.ratio3.value*1);
     calc.vol3.value = calc.sol_mL_m.value * calc.ratio3.value*1 / (calc.ratio1.value*1 + calc.ratio2.value*1 + calc.ratio3.value*1);
 }
+
