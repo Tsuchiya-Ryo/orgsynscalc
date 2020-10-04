@@ -1,40 +1,51 @@
+/* ------------- index.html input form setting ----------------- */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
+/* -------------- nmr.html setting ------------------------------ */
 
-  .scroll{
-  white-space: nowrap;　　/*tableのセル内にある文字の折り返しを禁止*/
-  }
+.scroll{
+opacity:1;
+white-space: nowrap;　　/*tableのセル内にある文字の折り返しを禁止*/
+}
 
-  .sticky_table thead th {
-    /* 縦スクロール時に固定する */
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    /* tbody内のセルより手前に表示する */
-    z-index: 1;
-  }
+.sticky_table thead th {
+  /* 縦スクロール時に固定する */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  /* tbody内のセルより手前に表示する */
+  z-index: 1;
+}
 
-  .sticky_table th:first-child {
-    /* 横スクロール時に固定する */
-    position: -webkit-sticky;
-    position: sticky;
-    left: 0;
-  }
+.sticky_table th:first-child {
+  /* 横スクロール時に固定する */
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+}
 
-  .sticky_table thead th:first-child {
-    /* ヘッダー行内の他のセルより手前に表示する */
-    z-index: 3;
-  }
+.sticky_table thead th:first-child {
+  /* ヘッダー行内の他のセルより手前に表示する */
+  z-index: 3;
+}
 
-  tbody tr th{
+.scroll tbody tr th{
+  font-size: small;
+}
+
+.scroll tbody tr:nth-child(odd) th{
+  background-color: whitesmoke;
+}
+.scroll tbody tr:nth-child(even) th{
     background-color: white;
-    font-size: small;
   }
 
-  tbody tr td sub{
-    z-index: -1;
-  }
+.scroll tbody tr td sub{
+  z-index: -1;
+}
+
+
