@@ -35,3 +35,6 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: small;
   }
 
+  tbody tr td sub{
+    z-index: -1;
+  }
