@@ -49,3 +49,7 @@ white-space: nowrap;　　/*tableのセル内にある文字の折り返しを�
 }
 
 
+/* page link font design */
+.pagelink {
+  font-size: large;
+}
