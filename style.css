@@ -7,6 +7,9 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* -------------- nmr.html setting ------------------------------ */
 
+
+
+
 .scroll{
 opacity:1;
 white-space: nowrap;　　/*tableのセル内にある文字の折り返しを禁止*/
@@ -48,8 +51,24 @@ white-space: nowrap;　　/*tableのセル内にある文字の折り返しを�
   z-index: -1;
 }
 
-
 /* page link font design */
 .pagelink {
   font-size: large;
 }
+
+/* image pop up */
+a img { 
+  display:none;
+ }
+a:hover img { 
+  position: relative;
+  display:block; 
+ }
+
+
+
+
+
+
+
+
