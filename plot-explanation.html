@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Plot-Exp</title>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <h3>Plotのページの使い方</h3>
+        <br>
+        <div align="right" class="pagelink">
+            <p><a href="index.html">HOME</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="nmr.html"><sup>1</sup>H-NMR</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="c-nmr.html"><sup>13</sup>C-NMR</a></p>
+            <p><a href="https://rts-dashplayground.herokuapp.com/" target="_blank">Plot</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#soltable">Solvent Table</a></p></div>
+        <br>
+        <p>Plotのページは30分放置するとサーバーが寝るのでリンクをクリックしてすぐに表示されない<br>
+        ときは気長に待ってみてください、サーバー起動中だと思うので。</p>
+        <p>・アップロードできるものはデータが<b>タブ</b>で区切られた<b>txtファイル</b>のみです(今のところ)。<br>
+           ・タブ区切りのテキストデータはexcelで数字の表をそのままメモ帳にコピペするか、<br>
+           名前をつけて保存を選択して"ファイルの種類"の所を"テキスト(タブ区切り)(*.txt)"<br>
+           にすればできます。<br>
+           ・データは数字のみ可能です(ラベルは英数字)。<b>カラム名（データの項目名）は削除</b>してください<br>
+           ・ドラッグアンドドロップか、クリックしてエクスプローラーから選択してアップロードします。<br>
+           一気に複数のファイルをアップすることは想定していません。<br>
+           ・アップロードされたデータは一時的にサーバーに保存されますが、次のファイルがアップされたら<br>
+           それに上書きされて無くなるようになってます。<br>
+           ・データに空白の所があると上手くいきません<br><br>
+
+           2d-plotでは、縦 x 横 = (データ数 x 2) もしくはラベルの項目を入れて(データ数 x 3)のみ可です。<br>
+           こんなの↓<br>
+           <img src="exp-img/sample2d-nolabel.png" width="50%" height="50%"><br><br>
+           もしくはラベルを加えてこんなの↓<br>
+           ラベル名に日本語があるとうまくいかないので英数字で<br>
+           <img src="exp-img/sample2d-withlabel.png" width="50%" height="50%"><br><br>
+           <br>
+           3d-plotでは、縦 x 横 = (データ数 x 3) もしくはラベルの項目を入れて(データ数 x 4)のみ可です。<br></p>
+        　 <br>
+           <br>
+           ファイルをアップしたのに何も表示されない場合はリロードしてもう一回やり直すか、<br>
+           ファイルの中身を見直してタブ区切り、データが皆数字か、空白がないか、カラム名がついていないか<br>
+           確認してみてください。
+           <br>
+           <br>
+           <br>           
+           <br>
+           <p>~~~グラフの触り方~~~</p>
+           <p>適当にデータ点にカーソルを合わせると、そこの座標とラベルが表示されます<br>
+           ラベルなしのデータだとラベルの値は1になっています。<br>
+           範囲選択するとそこが拡大されます。拡大から戻るのはダブルクリックです。<br>
+           その他簡単なオプションは右上のアイコンにあるので適当に選んでみてください。<br>
+           2d-plotのみ軸の名前を入力する欄を用意しました。</p>
+           <br>
+           <br>
+           <br>
+           <p>以下サンプルイメージ<br>
+           <img src="exp-img/sample2d-plotimg.png" width="60%" height="60%">
+           <img src="exp-img/sample3d-plotimg.png" width="60%" height="60%">
+           <br>
+           ラベルで点が色分けされるので比較しながらグラフに触りたい時などにどうぞ</p>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+
+            
+           
+
+
+
+
+        <script type="text/javascript" src="js.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
+            rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    </div>
+</body>
+
+</html>
